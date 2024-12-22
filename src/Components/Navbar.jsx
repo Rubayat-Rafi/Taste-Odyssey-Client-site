@@ -1,3 +1,4 @@
+import { Link, NavLink } from "react-router-dom";
 
 
 const Navbar = () => {
@@ -12,10 +13,10 @@ const Navbar = () => {
         <div className='flex-none'>
           <ul className='menu menu-horizontal px-1'>
             <li>
-              <a to='/'>Home</a>
+              <NavLink to='/'>Home</NavLink>
             </li>
             <li>
-              <a to='/jobs'>All Foods</a>
+              <NavLink to='/all-foods'>All Foods</NavLink>
             </li>
             <li>
               <a to='/jobs'> Gallery</a>
