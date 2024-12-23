@@ -86,7 +86,7 @@ const Banner = () => {
                   {slide.title}
                 </h1>
                 <p className="text-lg">{slide.description}</p>
-                <button className="mt-6 px-6 py-2 transition-all duration-300 bg-orange-500 font-medium hover:bg-orange-600">
+                <button className="mt-6 px-6 py-2 transition-all duration-300 bg-orange-500 font-medium hover:bg-orange-600 rounded-md">
                     <Link to={`/all-foods`}>View All Foods</Link>
                     </button>
               </div>
