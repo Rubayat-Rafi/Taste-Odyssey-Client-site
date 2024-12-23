@@ -44,7 +44,7 @@ const Login = () => {
 
 
     return (
-        <div className="flex justify-center items-center mx-auto max-w-[1440px] min-h-[calc(100vh-338px)] w-11/12 my-12" >
+        <div className="flex justify-center items-center mx-auto max-w-[1280px] min-h-[calc(100vh-338px)] w-11/12 my-12" >
             <div className="flex items-center justify-center lg:flex-row flex-col gap-6  w-full max-w-sm  overflow-hidden bg-white rounded-lg shadow-lg  lg:max-w-4xl p-8">
             <div className="w-full lg:w-1/2">
             <Lottie animationData={animationData} ></Lottie>
