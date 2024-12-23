@@ -101,9 +101,9 @@ const Navbar = () => {
           </button>
 
         </div>
-      </div>
+      </div >
           {open && (
-            <ul className="absolute top-16 w-40 right-5 mt-2 p-2 flex-col items-start bg-base-100 shadow-md rounded-md text-sm  kitchen-menu z-50">
+            <ul className="md:hidden  absolute top-16 w-40 right-5 mt-2 p-2 flex-col  items-start bg-base-100 shadow-md rounded-md text-sm kitchen-menu z-50 ">
               {links}
             </ul>
           )}

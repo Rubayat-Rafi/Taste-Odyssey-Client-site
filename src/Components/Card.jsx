@@ -1,4 +1,5 @@
 import { FaStar } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const Card = () => {
   return (
@@ -11,15 +12,17 @@ const Card = () => {
         <div className="space-y-2">
           <div className="flex justify-between items-center ">
             <h1 className="text-base md:text-lg font-semibold text-black">Japanis Ramen</h1>
-            <p className="bg-orange-500 text-[10px] py-1 px-2 rounded-sm text-white font-medium flex items-center gap-1">4.4 <FaStar/></p>
+            <p className="text-orange-500 text-xs rounded-sm  font-medium flex items-center gap-1">4.4 <FaStar/></p>
           </div>
           <div className="flex justify-between items-center">
             <p className=" text-xs md:text-sm text-black/60">I&apos;st test very good.</p>
             <p className=" text-xs md:text-sm text-black/60">390 TK.</p>
           </div>
           <div className="flex justify-between items-center">
-            <button 
-            className="bg-orange-500 text-white md:text-sm py-1 px-3 md:px-6 rounded-sm text-xs font-medium" >View Details</button>
+           <Link to={`/food-details`}>
+           <button 
+            className="bg-orange-500 text-white md:text-sm py-1 px-3 md:px-6 rounded-sm text-xs font-medium" > View Details </button>
+            </Link>
             <p className="text-sm text-black/60 ">25 min</p>
           </div>
         </div>

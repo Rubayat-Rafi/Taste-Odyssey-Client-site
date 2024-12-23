@@ -64,10 +64,8 @@ const Banner = () => {
         modules={[EffectFade, Navigation, Pagination, Autoplay]}
         slidesPerView={1}
       >
-        
         {banners.map((slide) => (
           <SwiperSlide key={slide.id}>
-            
             <div
               style={{
                 backgroundImage: `url(${slide.image})`,
@@ -76,19 +74,19 @@ const Banner = () => {
               }}
               className="relative flex flex-col justify-center items-center text-white text-center px-6 transition-transform h-[500px] md:h-[600px] lg:h-[800px]"
             >
-              
               {/* Overlay */}
               <div className="absolute inset-0 bg-black bg-opacity-50 z-0"></div>
               {/* Content */}
               <div className="relative z-10 mx-auto">
-                
                 <h1 className="z-10 text-4xl font-bold font-Montserrat mb-4">
                   {slide.title}
                 </h1>
                 <p className="text-lg">{slide.description}</p>
-                <button className="mt-6 px-6 py-2 transition-all duration-300 bg-orange-500 font-medium hover:bg-orange-600 rounded-md">
-                    <Link to={`/all-foods`}>View All Foods</Link>
-                    </button>
+                <Link to={`/all-foods`}>
+                  <button className="mt-6 px-6 py-2 transition-all duration-300 bg-orange-500 font-medium hover:bg-orange-600 rounded-md">
+                    View All Foods
+                  </button>
+                </Link>
               </div>
             </div>
           </SwiperSlide>
