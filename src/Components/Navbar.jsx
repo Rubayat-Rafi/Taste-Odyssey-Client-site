@@ -71,15 +71,15 @@ const Navbar = () => {
               className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
             >
               <li>
-                <NavLink to="/add-job" className="justify-between">
+                <NavLink to="/my-foods" className="justify-between">
                   My Foods
                 </NavLink>
               </li>
               <li>
-                <NavLink to="/my-posted-jobs">Add Food</NavLink>
+                <NavLink to="/add-food">Add Food</NavLink>
               </li>
               <li>
-                <NavLink to="/my-bids">My Orders</NavLink>
+                <NavLink to="/my-orders">My Orders</NavLink>
               </li>
               <li className="mt-2">
                 <button
