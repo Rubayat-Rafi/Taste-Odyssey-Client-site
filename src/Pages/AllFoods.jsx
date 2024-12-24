@@ -8,18 +8,24 @@ const AllFoods = () => {
     const [foods, setFoods]= useState([]);
     const [filter, setFilter] = useState('');
     const [search, setSearch] = useState('')
+    const [sort, setSort] = useState('')
 
     useEffect(() => {
         const AllFoods = async () => {
-            const {data} = await axios.get(`${import.meta.env.VITE_API_URL}/all-foods?filter=${filter}&search=${search}`);
+            const {data} = await axios.get(`${import.meta.env.VITE_API_URL}/all-foods?filter=${filter}&search=${search}&sort=${sort}`);
             setFoods(data);
         }
         AllFoods();
-    }, [filter, search]);
-
-    console.log(foods);
+    }, [filter, search, sort]);
 
 
+
+
+    const handleReset = () => {
+        setFilter('');
+        setSearch('');
+        setSort('');
+    }
 
 
     return (
@@ -75,16 +81,18 @@ const AllFoods = () => {
               <select
                 name='category'
                 id='category'
-                // onChange={e => setSort(e.target.value)}
+                onChange={e => setSort(e.target.value)}
+                value={sort}
                 className='border p-3 rounded-md'
-                // value={sort}
               >
                 <option value=''>Sort By Price</option>
                 <option value='dsc'>Descending Order</option>
                 <option value='asc'>Ascending Order</option>
               </select>
             </div>
-            <button className='bg-orange-500 text-white px-3 py-[10px] rounded-lg hover:bg-orange-600'>
+            <button
+            onClick={handleReset}
+            className='bg-orange-500 text-white px-3 py-[10px] rounded-lg hover:bg-orange-600'>
               Reset
             </button>
           </div>
