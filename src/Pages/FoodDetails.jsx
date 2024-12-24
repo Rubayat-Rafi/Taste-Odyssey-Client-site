@@ -1,8 +1,9 @@
-import React from 'react';
+
 
 const FoodDetails = () => {
     return (
-        <div>
+        <div className="container px-6 py-10 mx-auto min-h-[calc(100vh-338px)] flex flex-col justify-between">
+            
             food details page
         </div>
     );

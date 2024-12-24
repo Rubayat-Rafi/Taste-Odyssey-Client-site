@@ -22,8 +22,20 @@ const AllFoods = () => {
 
     return (
         <div className='container px-6 py-10 mx-auto min-h-[calc(100vh-338px)] flex flex-col justify-between'>
+            {/* heading banner */}
+            <div className="h-[100px] md:h-[250px] bg-all-food-banner w-full bg-cover bg-center bg-no-repeat flex items-center justify-center relative">
+                {/* overlay  */}
+            <div className="absolute inset-0 bg-black opacity-50"></div>
+            {/* descriptions  */}
+            <div className="text-center z-10">
+                <h1 className="text-xl md:text-4xl font-semibold text-white">All Foods | Taste Odyssey</h1>
+                <p className=" text-sm md:text-lg text-white/60">Choose your favorite food</p>  
+            </div>
+            </div>
+
+
         <div>
-          <div className='flex flex-col md:flex-row justify-center items-center gap-5 '>
+          <div className='flex flex-col md:flex-row justify-center items-center gap-5 mt-8 '>
             <div>
               <select
                 name='category'
@@ -74,12 +86,27 @@ const AllFoods = () => {
               Reset
             </button>
           </div>
-          <div className='grid grid-cols-1 gap-8 mt-8 xl:mt-16 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4'>
+          <div className='grid grid-cols-2 gap-8 mt-8 xl:mt-16 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4'>
             {
                 foods.map(food => <Card food={food} key={food._id}/>)
             }
           </div>
         </div>
+
+            {/* Pagination Section */}
+      <div className='flex justify-center mt-12'>
+
+        <button className='bg-orange-500 text-white px-3 py-[10px] rounded-lg hover:bg-orange-600'>
+          Previous
+        </button>
+
+
+
+        <button className='bg-orange-500 text-white px-3 py-[10px] rounded-lg hover:bg-orange-600'>
+          Next
+        </button>
+      </div>
+
       </div>
     );
 };

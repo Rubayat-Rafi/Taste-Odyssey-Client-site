@@ -13,7 +13,9 @@ export default {
         Roboto : ['Roboto', 'sans-serif'],
       },
       backgroundImage: {
-        "add-food-bg": "url('./src/assets/AddFoodBG.jpg')"
+        "add-food-bg": "url('./src/assets/AddFoodBG.jpg')",
+        'all-food-banner': "url('./src/assets/allfoodbanner.jpg')",
+        'gallery-banner': "url('./src/assets/galleryBG.jpg')",
       }
       
     },
