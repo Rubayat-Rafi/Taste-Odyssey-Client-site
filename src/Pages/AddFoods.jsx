@@ -1,9 +1,11 @@
 import { useContext } from "react";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const AddFoods = () => {
   const { user } = useContext(AuthContext);
+  const navigate = useNavigate()
 
   const handleAddFood = async(e) => {
     e.preventDefault();
@@ -40,6 +42,9 @@ const AddFoods = () => {
     try{
       const { data } = await axios.post(`${import.meta.env.VITE_API_URL}/add-food`, formData);
       console.log('add food data----------------->',data)
+
+      form.reset();
+      navigate('/all-foods')
     }
     catch(error){
       console.log(error); 
