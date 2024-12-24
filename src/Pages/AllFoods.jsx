@@ -6,15 +6,16 @@ import Card from "../Components/Card";
 const AllFoods = () => {
 
     const [foods, setFoods]= useState([]);
-    const [filter, setFilter] = useState('')
+    const [filter, setFilter] = useState('');
+    const [search, setSearch] = useState('')
 
     useEffect(() => {
         const AllFoods = async () => {
-            const {data} = await axios.get(`${import.meta.env.VITE_API_URL}/all-foods?filter=${filter}`);
+            const {data} = await axios.get(`${import.meta.env.VITE_API_URL}/all-foods?filter=${filter}&search=${search}`);
             setFoods(data);
         }
         AllFoods();
-    }, [filter]);
+    }, [filter, search]);
 
     console.log(foods);
 
@@ -60,8 +61,8 @@ const AllFoods = () => {
                 className='px-6 py-[10px] text-gray-700 placeholder-gray-500 bg-white outline-none focus:placeholder-transparent'
                 type='text'
                 name='search'
-                // onChange={e => setSearch(e.target.value)}
-                // value={search}
+                onChange={e => setSearch(e.target.value)}
+                value={search}
                 placeholder='Search Your Food'
                 aria-label='Search Your Food'
               />
