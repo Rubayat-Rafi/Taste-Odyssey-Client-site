@@ -6,14 +6,15 @@ import Card from "../Components/Card";
 const AllFoods = () => {
 
     const [foods, setFoods]= useState([]);
+    const [filter, setFilter] = useState('')
 
     useEffect(() => {
         const AllFoods = async () => {
-            const {data} = await axios.get(`${import.meta.env.VITE_API_URL}/all-foods`);
+            const {data} = await axios.get(`${import.meta.env.VITE_API_URL}/all-foods?filter=${filter}`);
             setFoods(data);
         }
         AllFoods();
-    }, []);
+    }, [filter]);
 
     console.log(foods);
 
@@ -41,8 +42,8 @@ const AllFoods = () => {
                 name='category'
                 id='category'
                 className='border p-3 rounded-lg'
-                // onChange={e => setFilter(e.target.value)}
-                // value={filter}
+                onChange={e => setFilter(e.target.value)}
+                value={filter}
               >
                 <option value=''>Filter By Category</option>
                 <option value="Japanese Cuisine">Japanese Cuisine</option>
