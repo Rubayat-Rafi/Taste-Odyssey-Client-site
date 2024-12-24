@@ -3,13 +3,14 @@ import { Link } from "react-router-dom";
 // eslint-disable-next-line react/prop-types
 const Card = ({food}) => {
 
-
-  const { food_name,
+  const {_id,
+     food_name,
     food_image,
     quantity,
     food_price,
     description,
     preparation_time,} = food || {};
+    
   return (
       <div className=" hover:bg-base-200 flex flex-col gap-4 p-4 rounded-lg hover:shadow-lg hover:scale-[1.02] transition-transform duration-300 ease-in-out">
         {/* image  */}
@@ -27,7 +28,7 @@ const Card = ({food}) => {
             <p className=" text-xs md:text-sm text-black/60">Qn: {quantity}</p>
           </div>
           <div className="flex justify-between items-center">
-           <Link to={`/food-details`}>
+           <Link to={`/food-details/${_id}`}>
            <button 
             className="bg-orange-500 text-white md:text-sm py-1 px-3 md:px-6 rounded-sm text-xs font-medium" > View Details </button>
             </Link>

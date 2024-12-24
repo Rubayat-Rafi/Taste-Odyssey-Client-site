@@ -49,7 +49,7 @@ export const router = createBrowserRouter([
                 element: <PrivetRoute><MyOrder/></PrivetRoute>
             },
             {
-                path: "/food-details",
+                path: "/food-details/:id",
                 element: <FoodDetails/>
             }
         ],
