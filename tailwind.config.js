@@ -12,6 +12,9 @@ export default {
         Montserrat : ['Montserrat', 'sans-serif'],
         Roboto : ['Roboto', 'sans-serif'],
       },
+      backgroundImage: {
+        "add-food-bg": "url('./src/assets/AddFoodBG.jpg')"
+      }
       
     },
   },

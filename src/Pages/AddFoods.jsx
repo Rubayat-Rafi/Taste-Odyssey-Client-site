@@ -48,7 +48,8 @@ const AddFoods = () => {
   };
 
   return (
-    <div className="flex justify-center items-center min-h-[calc(100vh-338px)] my-12">
+    <div className="bg-add-food-bg bg-cover bg-center ">
+    <div className="flex justify-center items-center min-h-[calc(100vh-338px)] py-12">
       <section className=" p-2 md:p-6 mx-auto bg-white rounded-md shadow-md ">
         <h2 className="text-lg font-semibold text-gray-700 capitalize ">
           Add Food
@@ -187,6 +188,7 @@ const AddFoods = () => {
         </form>
 
       </section>
+    </div>
     </div>
   );
 };
