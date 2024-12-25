@@ -10,11 +10,14 @@ import AddFoods from "../Pages/AddFoods";
 import MyOrder from "../Pages/MyOrder";
 import FoodDetails from "../Pages/FoodDetails";
 import PrivetRoute from "./PrivetRoute";
+import FoodPurchasePage from "../Pages/FoodPurchasePage";
+import ErrorPage from "../Pages/ErrorPage";
 
 export const router = createBrowserRouter([
     {
         path: "/",
         element: <Main/>,
+        errorElement: <ErrorPage/>,
         children: [
             {
                 path: "/",
@@ -51,6 +54,10 @@ export const router = createBrowserRouter([
             {
                 path: "/food-details/:id",
                 element: <FoodDetails/>
+            },
+            {
+                path: '/food-purchase/:id',
+                element: <PrivetRoute><FoodPurchasePage/></PrivetRoute>
             }
         ],
 

@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 const FoodDetails = () => {
   const { id } = useParams();
@@ -17,7 +17,7 @@ const FoodDetails = () => {
     AllFoods();
   }, [id]);
 
-  console.log(food);
+
   const {
     food_name,
     food_image,
@@ -53,8 +53,10 @@ const FoodDetails = () => {
           <p className="text-black/70">purchases: {purchases}</p>
             <p className="text-black/70">Owner_Email: {buyer?.email}</p>
           <p className="text-black/70">Description: {description}</p>
-          <button className="bg-orange-500 text-white md:text-sm py-1 px-3 md:px-6 rounded-sm text-xs font-medium">
+          <button  className="bg-orange-500 text-white md:text-sm py-1 px-3 md:px-6 rounded-sm text-xs font-medium">
+          <Link  to={`/food-purchase/${id}`}>
             Order Now
+          </Link>
           </button>
         </div>
       </div>
