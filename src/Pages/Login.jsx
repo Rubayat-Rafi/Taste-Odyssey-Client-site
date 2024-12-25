@@ -4,6 +4,7 @@ import animationData from "../assets/lottie/Animation - 1734876103222.json"
 import { FaGoogle } from "react-icons/fa";
 import { useContext } from "react";
 import { AuthContext } from "../AuthProvider/AuthProvider";
+import toast from "react-hot-toast";
 
 const Login = () => {
   const { handleSignInUser, handleGoogleLoginUser } = useContext(AuthContext);
@@ -21,10 +22,11 @@ const Login = () => {
     console.table({email, password})
     try {
      await handleSignInUser(email, password)
-     alert('SignIn Successfully')
+     toast.success('SignIn Successfully')
      navigate('/')
     } catch (error) {
       console.log(error.message)
+      toast.error('Failed to SignIn')
     }
   }
 
@@ -33,10 +35,11 @@ const Login = () => {
     const handleGoogle = async() => {
       try {
        await handleGoogleLoginUser()
-        alert('SignIn Successfully')
+        toast.success('SignIn Successfully')
         navigate('/')
       } catch (error) {
         console.log(error.message)
+        toast.error('Failed to SignIn')
     }
   }
 

@@ -4,6 +4,7 @@ import animationData from "../assets/lottie/Animation - 1734877842825.json";
 import { Link, useNavigate } from "react-router-dom";
 import { useContext, useState } from "react";
 import { AuthContext } from "../AuthProvider/AuthProvider";
+import toast from "react-hot-toast";
 
 const Register = () => {
   const { handleRegisterUser, setUser, handleUpdateprofile, handleGoogleLoginUser } =
@@ -46,10 +47,11 @@ const Register = () => {
       const handleGoogle = async() => {
         try {
          await handleGoogleLoginUser()
-          alert('SignIn Successfully')
+          toast.success('SignIn Successfully')
           navigate('/')
         } catch (error) {
           console.log(error.message)
+          toast.error('Failed to SignIn')
       }
     }
 

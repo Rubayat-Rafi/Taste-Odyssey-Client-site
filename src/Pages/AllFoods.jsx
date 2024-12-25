@@ -6,8 +6,8 @@ import { FaArrowRight } from "react-icons/fa";
 import { FaArrowLeft } from "react-icons/fa";
 
 const AllFoods = () => {
-  const [itemPerPage, setItemPerPage] = useState(8);
-  const [currentPage, setCurrentPage] = useState(0);
+  const [itemPerPage, setItemPerPage] = useState(9);
+  const [currentPage, setCurrentPage] = useState(1);
   const [count, setCount] = useState(0);
   const [foods, setFoods] = useState([]);
   const [filter, setFilter] = useState("");
@@ -19,7 +19,7 @@ const AllFoods = () => {
       const { data } = await axios.get(
         `${
           import.meta.env.VITE_API_URL
-        }/all-foods?filter=${filter}&search=${search}&sort=${sort}&page=${currentPage}&size=${itemPerPage}`
+        }/all-foods?filter=${filter}&search=${search}&sort=${sort}&page=${currentPage - 1}&size=${itemPerPage}`
       );
       setFoods(data);
     };
@@ -36,7 +36,9 @@ const AllFoods = () => {
     const fetchFoodCount = async () => {
       try {
         const { data } = await axios.get(
-          `${import.meta.env.VITE_API_URL}/food-count?filter=${filter}&search=${search}`
+          `${
+            import.meta.env.VITE_API_URL
+          }/food-count?filter=${filter}&search=${search}`
         );
         setCount(data.count);
       } catch (error) {
@@ -47,27 +49,25 @@ const AllFoods = () => {
   }, [filter, search]);
 
   const numberOfPages = Math.ceil(count / itemPerPage);
-  const pages = [...Array(numberOfPages).keys()]
+  const pages = [...Array(numberOfPages).keys()].map((page) => page + 1);
 
   const handlePaginationButton = (num) => {
-    const val = parseInt(num.target.value);
-    setItemPerPage(val);
-    setCurrentPage(0);
+    setCurrentPage(1); 
+    setItemPerPage(num); 
   };
 
   const handlePreviousPage = () => {
-    if (currentPage > 0) {
+    if (currentPage > 1) {
       setCurrentPage(currentPage - 1);
     }
   };
-
+  
   const handleNextPage = () => {
-    if (currentPage < pages.length - 1) {
+    if (currentPage < numberOfPages) {
       setCurrentPage(currentPage + 1);
     }
   };
 
-  
   return (
     <div className="container px-6 py-10 mx-auto min-h-[calc(100vh-338px)] flex flex-col justify-between">
       {/* heading banner */}
@@ -140,7 +140,7 @@ const AllFoods = () => {
             Reset
           </button>
         </div>
-        <div className="grid grid-cols-2 gap-8 mt-8  md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+        <div className="grid grid-cols-2 gap-8 mt-8  md:grid-cols-2 lg:grid-cols-3 ">
           {foods.map((food) => (
             <Card food={food} key={food._id} />
           ))}
@@ -150,8 +150,9 @@ const AllFoods = () => {
       {/* Pagination Section */}
       <div className="flex justify-center mt-12">
         <button
+          disabled={currentPage === 1}
           onClick={handlePreviousPage}
-          className="bg-orange-500 text-white px-3 py-[10px] rounded-lg hover:bg-orange-600"
+          className="bg-orange-500 text-white px-3 py-[10px] rounded-lg hover:bg-orange-600 disabled:opacity-50"
         >
           <FaArrowLeft />
         </button>
@@ -169,7 +170,7 @@ const AllFoods = () => {
         <button
           disabled={currentPage === numberOfPages}
           onClick={handleNextPage}
-          className="bg-orange-500 text-white px-3 py-[10px] rounded-lg hover:bg-orange-600"
+          className="bg-orange-500 text-white px-3 py-[10px] rounded-lg hover:bg-orange-600 disabled:opacity-50"
         >
           <FaArrowRight />
         </button>

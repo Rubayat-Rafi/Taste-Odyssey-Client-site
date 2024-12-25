@@ -1,7 +1,9 @@
+import { FaEdit } from "react-icons/fa";
+import { MdDeleteForever } from "react-icons/md";
 import { Link } from "react-router-dom";
 
 // eslint-disable-next-line react/prop-types
-const MyFoodTableRow = ({food}) => {
+const MyFoodTableRow = ({food, modernDelete}) => {
 
     const {
         food_name,
@@ -10,6 +12,7 @@ const MyFoodTableRow = ({food}) => {
         food_price,
         buyer,
         description,
+        _id
 
       } = food || {};
 
@@ -42,11 +45,15 @@ const MyFoodTableRow = ({food}) => {
 
         <td>{description?.substring(0,18)}...</td>
 
-        <td>
-          <Link to="/food-details">
-            <button className="btn btn-sm">View</button>
+        <td className="space-x-4">
+          <Link to={`/update-food/${_id}`}>
+            <button className=" text-green-500 text-lg hover:scale-[1.2]">
+            <FaEdit />
+            </button>
           </Link>
-          <button className="btn btn-sm">delete</button>
+        <button onClick={() => modernDelete(_id)} className="text-red-500 text-xl hover:scale-[1.2]">
+        <MdDeleteForever />
+        </button>
         </td>
 
       </tr>

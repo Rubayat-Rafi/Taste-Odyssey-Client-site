@@ -2,10 +2,12 @@ import { useContext } from "react";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import toast from "react-hot-toast";
 
 const AddFoods = () => {
   const { user } = useContext(AuthContext);
   const navigate = useNavigate()
+
 
   const handleAddFood = async(e) => {
     e.preventDefault();
@@ -19,6 +21,13 @@ const AddFoods = () => {
     const preparation_time = parseFloat(form.preparation_time.value);
     const email = user?.email;
     const description = form.description.value;
+
+    if(food_name === "" || food_image === "" || food_category === "" || food_origin === "" || quantity === "" || food_price === "" || preparation_time === "" || email === "" || description === ""){ 
+      return toast.error("Please fill all the fields");
+    }
+    if(quantity <= 0 || food_price <= 0 || preparation_time <= 0){
+      return toast.error("Invalid Quantity, Price or Preparation Time");
+    }
 
     const formData = {
       food_name,
@@ -42,12 +51,13 @@ const AddFoods = () => {
     try{
       const { data } = await axios.post(`${import.meta.env.VITE_API_URL}/add-food`, formData);
       console.log('add food data----------------->',data)
-
+      toast.success("Food Added Successfully");
       form.reset();
       navigate('/all-foods')
     }
     catch(error){
       console.log(error); 
+      toast.error("Failed to Add Food");
     }
 
   };
@@ -71,7 +81,7 @@ const AddFoods = () => {
                 id="food_name"
                 name="food_name"
                 type="text"
-                className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md  focus:border-orange-400 focus:ring-orange-300 focus:ring-opacity-40  focus:outline-none focus:ring"
+                className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md  focus:border-orange-400 focus:ring-orange-300 focus:ring-opacity-40  focus:outline-none focus:ring " 
               />
             </div>
             {/* food image  */}
@@ -83,6 +93,7 @@ const AddFoods = () => {
                 id="food_image"
                 type="URL"
                 name="food_image"
+              
                 className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md  focus:border-orange-400 focus:ring-orange-300 focus:ring-opacity-40  focus:outline-none focus:ring"
               />
             </div>
@@ -94,6 +105,7 @@ const AddFoods = () => {
               <select
                 name="food_category"
                 id="food_category"
+               
                 className="border p-2 rounded-md"
               >
                 <option value="Japanese Cuisine">Japanese Cuisine</option>
@@ -112,6 +124,7 @@ const AddFoods = () => {
               <select
                 name="food_origin"
                 id="food_origin"
+     
                 className="border p-2 rounded-md"
               >
                 <option value="Japanese">Japanese</option>
@@ -131,6 +144,7 @@ const AddFoods = () => {
                 id="quantity"
                 name="quantity"
                 type="number"
+            
                 className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md  focus:border-orange-400 focus:ring-orange-300 focus:ring-opacity-40  focus:outline-none focus:ring"
               />
             </div>
@@ -143,6 +157,7 @@ const AddFoods = () => {
                 id="food_price"
                 name="food_price"
                 type="number"
+       
                 className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md  focus:border-orange-400 focus:ring-orange-300 focus:ring-opacity-40  focus:outline-none focus:ring"
               />
             </div>
@@ -155,6 +170,7 @@ const AddFoods = () => {
                 id="preparation_time"
                 name="preparation_time"
                 type="number"
+    
                 className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md  focus:border-orange-400 focus:ring-orange-300 focus:ring-opacity-40  focus:outline-none focus:ring"
               />
             </div>
@@ -182,6 +198,7 @@ const AddFoods = () => {
               className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md  focus:border-orange-400 focus:ring-orange-300 focus:ring-opacity-40  focus:outline-none focus:ring"
               name="description"
               id="description"
+     
             ></textarea>
           </div>
             {/* Submit  button*/}

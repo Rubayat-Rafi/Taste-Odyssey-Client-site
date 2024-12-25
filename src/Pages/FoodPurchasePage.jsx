@@ -2,6 +2,7 @@ import axios from "axios";
 import { useContext, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { AuthContext } from "../AuthProvider/AuthProvider";
+import toast from "react-hot-toast";
 
 const FoodPurchasePage = () => {
   const { user } = useContext(AuthContext);
@@ -10,6 +11,7 @@ const FoodPurchasePage = () => {
   const [currentDate, setCurrentDate] = useState("");
   const navigate = useNavigate();
 
+  //take todays date and time 
   useEffect(() => {
     const date = new Date();
     setCurrentDate(date.toLocaleString()); 
@@ -25,32 +27,39 @@ const FoodPurchasePage = () => {
     AllFoods();
   }, [id]);
 
+  console.log(food);
 
-  const handlePurchase = (e) => {
+
+  const handlePurchase = async(e) => {
     e.preventDefault();
 
     const form = e.target;
-    const buyer_name = user?.displayName;
-    const buyer_email = user?.email;
+    const name = user?.displayName;
+    const email = user?.email;
     const food_name = food?.food_name;
     const food_price = food?.food_price;
-    const quantity = form.quantity.value;
+    const quantity = parseFloat(form.quantity.value);
     const date = currentDate;
+    const food_id = food?._id;
+    const purchases = food?.purchases
+    const owner = food?.buyer;
+    const image = food?.food_image;
 
-    if(quantity > food?.quantity) return alert("Not enough food available");
-    if(quantity <= 0) return alert("Invalid quantity");
 
-    const orderData = { id ,buyer_email, buyer_name, food_name, food_price, quantity, date};
-    console.log(orderData);
-    
+    if(quantity > food?.quantity) return toast.error("Not enough food available");
+    if(quantity <= 0) return toast.error("Invalid quantity");
+    if(email === owner?.email) return toast.error("You can't order your own food");
+
+    const orderData = { food_id ,email, name, food_name, food_price, quantity, date, purchases, owner, image };
     try{
-      axios.post(`${import.meta.env.VITE_API_URL}/purchase`, orderData);
-      alert("Order placed successfully Thank You!");
+      await axios.post(`${import.meta.env.VITE_API_URL}/purchase`, orderData);
       form.reset();
+      toast.success("Order placed successfully Thank You!");
       navigate("/my-orders");
     }
     catch(error){
       console.log(error);
+      toast.error("Failed to place order");
     }
 
 
@@ -129,8 +138,8 @@ const FoodPurchasePage = () => {
             </div>
             <div className="flex flex-col gap-y-2 w-full">
               <label htmlFor="date">Date</label>
-              {/* Non-editable field displaying the current date */}
-              <div className="border border-gray-300 rounded-md p-2 bg-gray-100 text-gray-700">
+
+              <div name="date" className="border border-gray-300 rounded-md p-2 bg-gray-100 text-gray-700">
                 {currentDate}
               </div>
             </div>

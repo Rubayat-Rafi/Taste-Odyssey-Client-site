@@ -3,6 +3,7 @@ import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { MdRestaurantMenu } from "react-icons/md";
+import toast from "react-hot-toast";
 
 
 const Navbar = () => {
@@ -13,9 +14,10 @@ const Navbar = () => {
   const handleLogout = async () => {
     try {
       await handleLogOutUser();
-      alert("Logout Successfully");
+      toast.success("Logout Successfully");
     } catch (error) {
       console.log(error.message);
+      toast.error("Failed to logout");
     }
   };
 
