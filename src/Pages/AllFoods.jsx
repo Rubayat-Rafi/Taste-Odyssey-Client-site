@@ -13,14 +13,15 @@ const AllFoods = () => {
   const [filter, setFilter] = useState("");
   const [search, setSearch] = useState("");
   const [sort, setSort] = useState("");
- 
 
   useEffect(() => {
     const AllFoods = async () => {
       const { data } = await axios.get(
         `${
           import.meta.env.VITE_API_URL
-        }/all-foods?filter=${filter}&search=${search}&sort=${sort}&page=${currentPage - 1}&size=${itemPerPage}`
+        }/all-foods?filter=${filter}&search=${search}&sort=${sort}&page=${
+          currentPage - 1
+        }&size=${itemPerPage}`
       );
       setFoods(data);
     };
@@ -53,8 +54,8 @@ const AllFoods = () => {
   const pages = [...Array(numberOfPages).keys()].map((page) => page + 1);
 
   const handlePaginationButton = (num) => {
-    setCurrentPage(1); 
-    setItemPerPage(num); 
+    setCurrentPage(1);
+    setItemPerPage(num);
   };
 
   const handlePreviousPage = () => {
@@ -62,7 +63,7 @@ const AllFoods = () => {
       setCurrentPage(currentPage - 1);
     }
   };
-  
+
   const handleNextPage = () => {
     if (currentPage < numberOfPages) {
       setCurrentPage(currentPage + 1);

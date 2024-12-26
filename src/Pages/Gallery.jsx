@@ -10,6 +10,7 @@ import image8 from "../assets/gallery/8.jpg";
 import image9 from "../assets/gallery/9.jpg";
 import image10 from "../assets/gallery/10.jpg";
 import image11 from "../assets/gallery/11.jpg";
+import image12 from "../assets/gallery/12.jpg";
 
 
 
@@ -70,6 +71,11 @@ const Gallery = () => {
       caption: "Stewed white beans and sliced pumpkin in tomato sauce",
       src: image11,
     },
+    {
+      alt: "Image3's alt text",
+      caption: "Get inspired by Stateside favourites, from burgers and hotdogs to pancakes and pies.",
+      src: image12,
+    }
   ];
 
   return (

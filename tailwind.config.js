@@ -15,8 +15,8 @@ export default {
       },
       backgroundImage: {
         "add-food-bg": "url('./src/assets/AddFoodBG.jpg')",
-        'all-food-banner': "url('./src/assets/allfoodbanner.jpg')",
-        'gallery-banner': "url('./src/assets/galleryBG.jpg')",
+        'all-food-banner': "url('./src/assets/compressed_allfoodbanner.jpg')",
+        'gallery-banner': "url('./src/assets/compressed_galleryBG.jpg')",
         "food-details-bg" : "url('./src/assets/fooddetailsBG.jpg')",
       }
       

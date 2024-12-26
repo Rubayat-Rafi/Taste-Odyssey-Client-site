@@ -36,7 +36,7 @@ const Faq = () => {
          Can I meet or talk to your chefs?
         </div>
         <div className="collapse-content">
-          <p className="text-black/60 dark:text-white/60">Yes! If you're visiting our restaurant or attending a special event, feel free to ask about meeting our chefs. They love connecting with food enthusiasts.</p>
+          <p className="text-black/60 dark:text-white/60">Yes! If you&apos;re visiting our restaurant or attending a special event, feel free to ask about meeting our chefs. They love connecting with food enthusiasts.</p>
         </div>
       </div>
 
