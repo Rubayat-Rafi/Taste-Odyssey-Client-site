@@ -9,7 +9,9 @@ import {
   signInWithPopup,
   GoogleAuthProvider,
 } from "firebase/auth";
-import{app} from '../Firebase/firebase.init'
+import { app } from "../Firebase/firebase.init";
+import axios from "axios";
+
 // eslint-disable-next-line react-refresh/only-export-components
 export const AuthContext = createContext(null);
 
@@ -27,45 +29,55 @@ const AuthProvider = ({ children }) => {
     return createUserWithEmailAndPassword(auth, email, password);
   };
 
-  // update resgister user profile 
+  // update resgister user profile
   const handleUpdateprofile = (name, photo) => {
     setLoading(true);
     return updateProfile(auth.currentUser, {
-        displayName: name,
-        photoURL: photo,
-    })
-  }
-  
+      displayName: name,
+      photoURL: photo,
+    });
+  };
+
   // signIn User with email and password
   const handleSignInUser = (email, password) => {
     setLoading(true);
     return signInWithEmailAndPassword(auth, email, password);
-  }
+  };
 
-   //google login user
+  //google login user
   const handleGoogleLoginUser = () => {
     setLoading(true);
-    return signInWithPopup(auth, provider)
-  }
+    return signInWithPopup(auth, provider);
+  };
 
-   //logout user
-   const handleLogOutUser = ()=> {
+  //logout user
+  const handleLogOutUser = () => {
     setLoading(true);
-    return signOut(auth)
-   }
+    return signOut(auth);
+  };
 
-
-// A security guard for the user
+  // A security guard for the user
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-      setUser(currentUser);
+    const unsubscribe = onAuthStateChanged(auth, async (currentUser) => {
+      if(currentUser?.email){
+        setUser(currentUser);
+        const {data} = await axios.post(`${import.meta.env.VITE_API_URL}/jwt`, {email: currentUser?.email}, {withCredentials: true});
+        console.log(data);
+        
+      }else{
+        setUser(currentUser);
+        const { data } = await axios.get(
+          `${import.meta.env.VITE_API_URL}/logOut`,
+          { withCredentials: true }
+        )
+        console.log(data);
+      }
       setLoading(false);
     });
-    // Cleanup subscription on unmount
     return () => unsubscribe();
   }, []);
 
-  console.log(user)
+  console.log(user);
 
   const authInfo = {
     user,
@@ -76,7 +88,6 @@ const AuthProvider = ({ children }) => {
     handleSignInUser,
     handleLogOutUser,
     handleGoogleLoginUser,
-
   };
   return (
     <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>

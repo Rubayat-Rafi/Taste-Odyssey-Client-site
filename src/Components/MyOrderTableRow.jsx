@@ -1,9 +1,11 @@
+import moment from "moment";
 import { MdDeleteForever } from "react-icons/md";
 
 // eslint-disable-next-line react/prop-types
 const MyOrderTableRow = ({ order, modernDelete }) => {
   const { _id, food_name, food_price, quantity, date, owner, image } =
     order || {};
+
 
   return (
     <tr>
@@ -20,10 +22,10 @@ const MyOrderTableRow = ({ order, modernDelete }) => {
       <td>{food_name}</td>
       <td>{food_price} Taka</td>
       <td>
-        <span className="badge badge-ghost badge-sm">{owner?.email}</span>
+        <span className="badge badge-ghost badge-sm dark:bg-white/20 dark:text-white/60 dark:border-white/10">{owner?.email}</span>
       </td>
 
-      <td>{date}</td>
+      <td> {moment(date).format('lll')}</td>
 
       <td>{quantity}</td>
 

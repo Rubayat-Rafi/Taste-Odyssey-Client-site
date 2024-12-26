@@ -65,8 +65,8 @@ const AddFoods = () => {
   return (
     <div className="bg-add-food-bg bg-cover bg-center ">
     <div className="flex justify-center items-center min-h-[calc(100vh-338px)] py-12">
-      <section className=" p-2 md:p-6 mx-auto bg-white rounded-md shadow-md ">
-        <h2 className="text-lg font-semibold text-gray-700 capitalize ">
+      <section className=" p-2 md:p-6 mx-auto bg-white dark:bg-white/20 rounded-md shadow-md ">
+        <h2 className="text-lg font-semibold text-gray-700 capitalize dark:text-white">
           Add Food
         </h2>
 
@@ -74,19 +74,19 @@ const AddFoods = () => {
           <div className="grid grid-cols-1 gap-6 mt-4 sm:grid-cols-2">
             {/* food_name */}
             <div>
-              <label className="text-gray-700 " htmlFor="Food Name">
+              <label className="text-gray-700 dark:text-white/70" htmlFor="Food Name">
                 Food Name
               </label>
               <input
                 id="food_name"
                 name="food_name"
                 type="text"
-                className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md  focus:border-orange-400 focus:ring-orange-300 focus:ring-opacity-40  focus:outline-none focus:ring " 
+                className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md  focus:border-orange-400 focus:ring-orange-300 focus:ring-opacity-40  focus:outline-none focus:ring  dark:text-white/70 dark:bg-white/20 dark:border-white/20" 
               />
             </div>
             {/* food image  */}
             <div>
-              <label className="text-gray-700 " htmlFor="food_image">
+              <label className="text-gray-700 dark:text-white/70" htmlFor="food_image">
                 Food Image URL
               </label>
               <input
@@ -94,50 +94,50 @@ const AddFoods = () => {
                 type="URL"
                 name="food_image"
               
-                className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md  focus:border-orange-400 focus:ring-orange-300 focus:ring-opacity-40  focus:outline-none focus:ring"
+                className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md  focus:border-orange-400 focus:ring-orange-300 focus:ring-opacity-40  focus:outline-none focus:ring  dark:text-white/70 dark:bg-white/20 dark:border-white/20"
               />
             </div>
             {/* food category */}
             <div className="flex flex-col gap-2 ">
-              <label className="text-gray-700 " htmlFor="food_category">
+              <label className="text-gray-700 dark:text-white/70" htmlFor="food_category">
                 Food Category
               </label>
               <select
                 name="food_category"
                 id="food_category"
                
-                className="border p-2 rounded-md"
+                className="border p-2 rounded-md  dark:text-white/70 dark:bg-white/20 dark:border-white/20 "
               >
-                <option value="Japanese Cuisine">Japanese Cuisine</option>
-                <option value="Chinese Cuisine">Chinese Cuisine</option>
-                <option value="Deshi Cuisine">Deshi Cuisine</option>
-                <option value="Thai Cuisine">Thai Cuisine</option>
-                <option value="Korean Cuisine">Korean Cuisine</option>
-                <option value="American Cuisine">American Cuisine</option>
+                <option className="dark:text-black"   value="Japanese Cuisine">Japanese Cuisine</option>
+                <option className="dark:text-black"  value="Chinese Cuisine">Chinese Cuisine</option>
+                <option className="dark:text-black"  value="Deshi Cuisine">Deshi Cuisine</option>
+                <option className="dark:text-black"  value="Thai Cuisine">Thai Cuisine</option>
+                <option className="dark:text-black"  value="Korean Cuisine">Korean Cuisine</option>
+                <option className="dark:text-black" value="American Cuisine">American Cuisine</option>
               </select>
             </div>
             {/* food origin */}
             <div className="flex flex-col gap-2 ">
-              <label className="text-gray-700 " htmlFor="food_origin">
+              <label className="text-gray-700  dark:text-white/70" htmlFor="food_origin">
                 Food Origin
               </label>
               <select
                 name="food_origin"
                 id="food_origin"
      
-                className="border p-2 rounded-md"
+                className="border p-2 rounded-md dark:text-white/70 dark:bg-white/20 dark:border-white/20"
               >
-                <option value="Japanese">Japanese</option>
-                <option value="Chinese">Chinese</option>
-                <option value="Bangladeshi">Bangladeshi</option>
-                <option value="Thai">Thai</option>
-                <option value="Korean">Korean</option>
-                <option value="American">American</option>
+                <option className="dark:text-black" value="Japanese">Japanese</option>
+                <option className="dark:text-black" value="Chinese">Chinese</option>
+                <option className="dark:text-black" value="Bangladeshi">Bangladeshi</option>
+                <option className="dark:text-black" value="Thai">Thai</option>
+                <option className="dark:text-black" value="Korean">Korean</option>
+                <option className="dark:text-black" value="American">American</option>
               </select>
             </div>
             {/* food quantity */}
             <div>
-              <label className="text-gray-700 " htmlFor="quantity">
+              <label className="text-gray-700  dark:text-white/70" htmlFor="quantity">
                 Food Quantity
               </label>
               <input
@@ -145,12 +145,12 @@ const AddFoods = () => {
                 name="quantity"
                 type="number"
             
-                className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md  focus:border-orange-400 focus:ring-orange-300 focus:ring-opacity-40  focus:outline-none focus:ring"
+                className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md  focus:border-orange-400 focus:ring-orange-300 focus:ring-opacity-40  focus:outline-none focus:ring dark:text-white/70 dark:bg-white/20 dark:border-white/20"
               />
             </div>
             {/* food price */}
             <div>
-              <label className="text-gray-700 " htmlFor="food_price">
+              <label className="text-gray-700  dark:text-white/70" htmlFor="food_price">
                 Food Price
               </label>
               <input
@@ -158,12 +158,12 @@ const AddFoods = () => {
                 name="food_price"
                 type="number"
        
-                className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md  focus:border-orange-400 focus:ring-orange-300 focus:ring-opacity-40  focus:outline-none focus:ring"
+                className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md  focus:border-orange-400 focus:ring-orange-300 focus:ring-opacity-40  focus:outline-none focus:ring dark:text-white/70 dark:bg-white/20 dark:border-white/20"
               />
             </div>
             {/* Preparation Time */}
             <div>
-              <label className="text-gray-700 " htmlFor="preparation_time">
+              <label className="text-gray-700  dark:text-white/70" htmlFor="preparation_time">
               Preparation Time
               </label>
               <input
@@ -171,12 +171,12 @@ const AddFoods = () => {
                 name="preparation_time"
                 type="number"
     
-                className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md  focus:border-orange-400 focus:ring-orange-300 focus:ring-opacity-40  focus:outline-none focus:ring"
+                className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md  focus:border-orange-400 focus:ring-orange-300 focus:ring-opacity-40  focus:outline-none focus:ring dark:text-white/70 dark:bg-white/20 dark:border-white/20"
               />
             </div>
             {/* email */}
             <div>
-              <label className="text-gray-700 " htmlFor="emailAddress">
+              <label className="text-gray-700  dark:text-white/70" htmlFor="emailAddress">
                 Email Address
               </label>
               <input
@@ -185,17 +185,17 @@ const AddFoods = () => {
                 name="email"
                 defaultValue={user?.email}
                 disabled={true}
-                className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md "
+                className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:text-white/70 dark:bg-white/20 dark:border-white/20"
               />
             </div>
           </div>
             {/* description */}
           <div className="flex flex-col gap-2 mt-4">
-            <label className="text-gray-700 " htmlFor="description">
+            <label className="text-gray-700  dark:text-white/70" htmlFor="description">
               A Short Description
             </label>
             <textarea
-              className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md  focus:border-orange-400 focus:ring-orange-300 focus:ring-opacity-40  focus:outline-none focus:ring"
+              className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md  focus:border-orange-400 focus:ring-orange-300 focus:ring-opacity-40  focus:outline-none focus:ring dark:text-white/70 dark:bg-white/20 dark:border-white/20"
               name="description"
               id="description"
      

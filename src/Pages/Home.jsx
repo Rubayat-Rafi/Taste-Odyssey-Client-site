@@ -18,6 +18,9 @@ const Home = () => {
     AllFoods();
   }, []);
 
+
+  console.log(foods);
+
   return (
     <div>
       <Banner />

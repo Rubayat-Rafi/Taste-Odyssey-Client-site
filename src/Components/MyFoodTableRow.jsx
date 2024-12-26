@@ -38,7 +38,7 @@ const MyFoodTableRow = ({food, modernDelete}) => {
           {food_category}
         </td>
         <td>
-          <span className="badge badge-ghost badge-sm">{buyer?.email}</span>
+          <span className="badge badge-ghost badge-sm dark:bg-white/20 dark:text-white/60 dark:border-white/10">{buyer?.email}</span>
         </td>
 
         <td>{food_price} Taka</td>

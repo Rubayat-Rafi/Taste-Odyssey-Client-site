@@ -70,30 +70,30 @@ const FoodPurchasePage = () => {
     <section className="container px-6 py-10 mx-auto min-h-[calc(100vh-338px)] flex  justify-center items-center">
       <form
         onSubmit={handlePurchase}
-        className=" max-w-2xl w-full p-4 bg-white rounded-md shadow-md"
+        className=" max-w-2xl w-full p-4 bg-white dark:bg-white/20 rounded-md shadow-md"
       >
-        <h2 className="text-xl font-semibold mb-4">Purchase Your Food</h2>
+        <h2 className="text-xl font-semibold mb-4 dark:text-white">Purchase Your Food</h2>
         <div className="flex flex-col gap-y-4">
           {/* 1 row  */}
-          <div className="flex flex-col md:flex-row gap-x-4 justify-between">
+          <div className="flex flex-col md:flex-row gap-x-4 justify-between ">
             <div className="flex flex-col gap-y-2 w-full">
-              <label htmlFor="name">Name</label>
+              <label htmlFor="name" className="dark:text-white" >Name</label>
               <input
                 type="text"
                 name="name"
                 id="name"
-                className="border border-gray-300 rounded-md p-2"
+                className="border border-gray-300 rounded-md p-2 dark:placeholder:text-white/70 dark:border-white/20  dark:bg-white/20 dark:text-white/70"
                 value={user?.displayName}
                 disabled
               />
             </div>
             <div className="flex flex-col gap-y-2 w-full">
-              <label htmlFor="email">Email</label>
+              <label htmlFor="email" className="dark:text-white">Email</label>
               <input
                 type="email"
                 name="email"
                 id="email"
-                className="border border-gray-300 rounded-md p-2"
+                className="border border-gray-300 rounded-md p-2 dark:placeholder:text-white/70 dark:border-white/20  dark:bg-white/20 dark:text-white/70"
                 value={user?.email}
                 disabled
               />
@@ -102,23 +102,23 @@ const FoodPurchasePage = () => {
           {/* row 2  */}
           <div className="flex flex-col md:flex-row gap-x-4 justify-between">
             <div className="flex flex-col gap-y-2 w-full">
-              <label htmlFor="name">Food Name</label>
+              <label htmlFor="name" className="dark:text-white">Food Name</label>
               <input
                 type="text"
                 name="name"
                 id="name"
-                className="border border-gray-300 rounded-md p-2"
+                className="border border-gray-300 rounded-md p-2 dark:placeholder:text-white/70 dark:border-white/20  dark:bg-white/20 dark:text-white/70"
                 value={food?.food_name}
                 disabled
               />
             </div>
             <div className="flex flex-col gap-y-2 w-full">
-              <label htmlFor="name">Food Price</label>
+              <label htmlFor="name" className="dark:text-white">Food Price</label>
               <input
                 type="text"
                 name="name"
                 id="name"
-                className="border border-gray-300 rounded-md p-2"
+                className="border border-gray-300 rounded-md p-2 dark:placeholder:text-white/70 dark:border-white/20  dark:bg-white/20 dark:text-white/70"
                 value={food?.food_price}
                 disabled
               />
@@ -127,19 +127,19 @@ const FoodPurchasePage = () => {
           {/* row 3  */}
           <div className="flex flex-col md:flex-row gap-x-4 justify-between">
             <div className="flex flex-col gap-y-2 w-full">
-              <label htmlFor="quantity">Quantity</label>
+              <label htmlFor="quantity" className="dark:text-white">Quantity</label>
               <input
                 type="number"
                 name="quantity"
                 id="quantity"
-                className="border border-gray-300 rounded-md p-2"
+                className="border border-gray-300 rounded-md p-2 dark:placeholder:text-white/70 dark:border-white/20  dark:bg-white/20 dark:text-white/70"
                 placeholder="Quantity"
               />
             </div>
             <div className="flex flex-col gap-y-2 w-full">
-              <label htmlFor="date">Date</label>
+              <label htmlFor="date" className="dark:text-white " >Date</label>
 
-              <div name="date" className="border border-gray-300 rounded-md p-2 bg-gray-100 text-gray-700">
+              <div name="date" className="border border-gray-300 dark:border-white/20 rounded-md p-2 bg-gray-100 dark:bg-white/20 text-gray-700 dark:text-white/70">
                 {currentDate}
               </div>
             </div>

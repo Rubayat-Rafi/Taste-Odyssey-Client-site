@@ -66,7 +66,7 @@ const MyFoods = () => {
   return (
     <section className="container px-4 mx-auto pt-12 mb-10">
       <div className="flex items-center gap-x-3">
-        <h2 className="text-lg font-medium text-gray-800 ">My Posted Foods</h2>
+        <h2 className="text-lg font-medium text-gray-800 dark:text-white">My Posted Foods</h2>
 
         <span className="px-3 py-1 text-xs text-orange-600 bg-orange-100 rounded-full ">
           {foods.length} Post
@@ -74,23 +74,23 @@ const MyFoods = () => {
       </div>
 
       {foods.length === 0 ? (
-        <p className="text-center mt-6 font-medium">No Food Posted Yet</p>
+        <p className="text-center mt-6 font-medium dark:text-white">No Food Posted Yet</p>
       ) : (
         <div className="flex flex-col mt-6">
           <div className="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
-            <div className="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
-              <div className="overflow-hidden border border-gray-200  md:rounded-lg">
-                <table className="table ">
+            <div className="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8 dar">
+              <div className="overflow-hidden border border-gray-200 dark:border-white/60 md:rounded-lg dark:placeholder:text-white/70  dark:bg-white/20 dark:text-white/70">
+                <table className="table dark:text-white/60">
                   {/* head */}
                   <thead>
                     <tr>
-                      <th>Image</th>
-                      <th>Name</th>
-                      <th>category</th>
-                      <th>Email</th>
-                      <th>Price</th>
-                      <th>Description</th>
-                      <th>Status</th>
+                      <th className="dark:text-white">Image</th>
+                      <th className="dark:text-white">Name</th>
+                      <th className="dark:text-white">category</th>
+                      <th className="dark:text-white">Email</th>
+                      <th className="dark:text-white">Price</th>
+                      <th className="dark:text-white">Description</th>
+                      <th className="dark:text-white">Status</th>
                     </tr>
                   </thead>
                   <tbody>

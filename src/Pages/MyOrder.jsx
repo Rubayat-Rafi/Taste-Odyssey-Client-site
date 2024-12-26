@@ -69,9 +69,9 @@ const MyOrder = () => {
     return (
         <section className="container px-4 mx-auto pt-12 mb-10">
         <div className="flex items-center gap-x-3">
-          <h2 className="text-lg font-medium text-gray-800 ">My Ordered Foods</h2>
+          <h2 className="text-lg font-medium text-gray-800 dark:text-white">My Ordered Foods</h2>
   
-          <span className="px-3 py-1 text-xs text-orange-600 bg-orange-100 rounded-full ">
+          <span className="px-3 py-1 text-xs text-orange-600 bg-orange-100 rounded-full">
             {orders.length} Post
           </span>
         </div>
@@ -82,18 +82,18 @@ const MyOrder = () => {
           <div className="flex flex-col mt-6">
             <div className="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
               <div className="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
-                <div className="overflow-hidden border border-gray-200  md:rounded-lg">
+                <div className="overflow-hidden border border-gray-200  md:rounded-lg dark:bg-white/20 dark:text-white/70 dark:border-white/60">
                   <table className="table ">
                     {/* head */}
                     <thead>
                       <tr>
-                        <th>Image</th>
-                        <th>Name</th>
-                        <th>Price</th>
-                        <th>Owner</th>
-                        <th>Date</th>
-                        <th>quantity</th>
-                        <th>Delete</th>
+                        <th className='dark:text-white'>Image</th>
+                        <th className='dark:text-white'>Name</th>
+                        <th className='dark:text-white'>Price</th>
+                        <th className='dark:text-white'>Owner</th>
+                        <th className='dark:text-white'>Date</th>
+                        <th className='dark:text-white'>quantity</th>
+                        <th className='dark:text-white'>Delete</th>
                       </tr>
                     </thead>
                     <tbody>

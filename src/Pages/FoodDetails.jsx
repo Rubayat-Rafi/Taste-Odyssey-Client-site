@@ -33,7 +33,7 @@ const FoodDetails = () => {
 
   return (
     <div className="container px-6 py-10 mx-auto min-h-[calc(100vh-338px)] flex items-center justify-center   ">
-      <div className="flex flex-col md:flex-row justify-start items-start md:w-[800px]  gap-6 bg-white p-4 rounded-md shadow-md">
+      <div className="flex flex-col md:flex-row justify-start items-start md:w-[800px]  gap-6 bg-white dark:bg-white/20 p-4 rounded-md shadow-md">
         {/* food image  */}
         <div className=" md:w-1/2 ">
           <img
@@ -44,15 +44,15 @@ const FoodDetails = () => {
         </div>
         {/* food details  */}
         <div className="space-y-3 md:w-1/2">
-          <h1 className="text-2xl font-semibold text-black"> {food_name} </h1>
-          <p className="text-black/70">Price: {food_price} Taka.</p>
-          <p className="text-black/70">Quantity: {quantity} plate </p>
-          <p className="text-black/70">Preparation Time: {preparation_time} min </p>
-          <p className="text-black/70">Category: {food_category} </p>
-          <p className="text-black/70">Origin: {food_origin}</p>
-          <p className="text-black/70">purchases: {purchases}</p>
-            <p className="text-black/70">Owner_Email: {buyer?.email}</p>
-          <p className="text-black/70">Description: {description}</p>
+          <h1 className="text-2xl font-semibold text-black dark:text-white"> {food_name} </h1>
+          <p className="text-black/70 dark:text-white/60">Price: {food_price} Taka.</p>
+          <p className="text-black/70 dark:text-white/60">Quantity: {quantity} plate </p>
+          <p className="text-black/70 dark:text-white/60">Preparation Time: {preparation_time} min </p>
+          <p className="text-black/70 dark:text-white/60">Category: {food_category} </p>
+          <p className="text-black/70 dark:text-white/60">Origin: {food_origin}</p>
+          <p className="text-black/70 dark:text-white/60">purchases: {purchases}</p>
+            <p className="text-black/70 dark:text-white/60">Owner_Email: {buyer?.email}</p>
+          <p className="text-black/70 dark:text-white/60">Description: {description}</p>
           <button  className="bg-orange-500 text-white md:text-sm py-1 px-3 md:px-6 rounded-sm text-xs font-medium">
           <Link  to={`/food-purchase/${id}`}>
             Order Now
