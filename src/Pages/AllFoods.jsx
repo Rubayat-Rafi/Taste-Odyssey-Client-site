@@ -73,7 +73,9 @@ const AllFoods = () => {
   return (
     <div className="container px-6 py-10 mx-auto min-h-[calc(100vh-338px)] flex flex-col justify-between">
       {/* heading banner */}
-      <div className="h-[100px] md:h-[250px] bg-all-food-banner w-full bg-cover bg-center bg-no-repeat flex items-center justify-center relative">
+      <div
+      // style={{ backgroundImage: 'url()' }}
+      className="h-[100px] md:h-[250px] bg-all-food-banner w-full bg-cover bg-center bg-no-repeat flex items-center justify-center relative">
         {/* overlay  */}
         <div className="absolute inset-0 bg-black opacity-50"></div>
         {/* descriptions  */}

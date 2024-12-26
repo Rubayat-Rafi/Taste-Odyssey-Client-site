@@ -67,8 +67,7 @@ const AddFoods = () => {
       navigate('/all-foods')
     }
     catch(error){
-      console.log(error); 
-      toast.error("Failed to Add Food");
+      toast.error("Failed to Add Food", error.message);
     }
 
   };

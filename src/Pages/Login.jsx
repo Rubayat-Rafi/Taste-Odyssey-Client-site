@@ -25,8 +25,7 @@ const Login = () => {
      toast.success('SignIn Successfully')
      navigate('/')
     } catch (error) {
-      console.log(error.message)
-      toast.error('Failed to SignIn')
+      toast.error('Failed to SignIn', error.message)
     }
   }
 
@@ -38,8 +37,8 @@ const Login = () => {
         toast.success('SignIn Successfully')
         navigate('/')
       } catch (error) {
-        console.log(error.message)
-        toast.error('Failed to SignIn')
+    
+        toast.error('Failed to SignIn', error.message)
     }
   }
 

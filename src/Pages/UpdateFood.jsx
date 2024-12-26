@@ -22,10 +22,10 @@ const UpdateFood = () => {
       );
       setFood(data);
     } catch (error) {
-      console.log(error);
+      toast.error("Failed to fetch food data", error.message);
     }
   };
-  console.log(food);
+
 
   const handleUpdateFood = async (e) => {
     e.preventDefault();
@@ -76,17 +76,16 @@ const UpdateFood = () => {
 
     console.table(formData);
     try {
-      const { data } = await axios.put(
+     await axios.put(
         `${import.meta.env.VITE_API_URL}/update-food/${id}`,
         formData
       );
-      console.log("update food data----------------->", data);
+
       toast.success("Food Updated Successfully");
       form.reset();
       navigate("/all-foods");
     } catch (error) {
-      console.log(error);
-      toast.error("Failed to Update Food");
+      toast.error("Failed to Update Food", error.message);
     }
   };
 

@@ -34,11 +34,10 @@ const Register = () => {
 
     try {
       const result = await handleRegisterUser(email, password);
-      console.log(result);
       await handleUpdateprofile(name, photo);
       setUser({ ...result.user, displayName: name, photoURL: photo });
     } catch (error) {
-      console.log(error.message);
+      toast.error("Failed to Register", error.message);
     }
   };
 
@@ -50,8 +49,7 @@ const Register = () => {
           toast.success('SignIn Successfully')
           navigate('/')
         } catch (error) {
-          console.log(error.message)
-          toast.error('Failed to SignIn')
+          toast.error('Failed to SignIn', error.message)
       }
     }
 

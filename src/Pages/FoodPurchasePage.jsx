@@ -27,7 +27,7 @@ const FoodPurchasePage = () => {
     AllFoods();
   }, [id]);
 
-  console.log(food);
+
 
 
   const handlePurchase = async(e) => {
@@ -58,8 +58,7 @@ const FoodPurchasePage = () => {
       navigate("/my-orders");
     }
     catch(error){
-      console.log(error);
-      toast.error("Failed to place order");
+      toast.error("Failed to place order", error.message);
     }
 
 

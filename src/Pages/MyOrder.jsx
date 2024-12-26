@@ -25,12 +25,11 @@ const MyOrder = () => {
      // delete functionality for posted food
   const handleDelete = async (id) => {
     try {
-      const { data } = await axiosSecure.delete(`/delete-order/${id}`);
-      console.log(data);
+    await axiosSecure.delete(`/delete-order/${id}`);
       toast.success("Data Deleted Successfully!!!");
       AllFoods();
     } catch (err) {
-      console.log(err);
+
       toast.error(err.message);
     }
   };

@@ -23,12 +23,6 @@ const Home = () => {
   if (isLoading) return <Loading/>;
   
 
-
-
-
-
-  console.log(foods);
-
   return (
     <div>
       <Banner />
