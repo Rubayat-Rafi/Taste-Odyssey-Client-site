@@ -13,6 +13,7 @@ const AllFoods = () => {
   const [filter, setFilter] = useState("");
   const [search, setSearch] = useState("");
   const [sort, setSort] = useState("");
+ 
 
   useEffect(() => {
     const AllFoods = async () => {

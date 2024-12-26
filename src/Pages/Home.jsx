@@ -1,22 +1,30 @@
-import { useEffect, useState } from "react";
 import Banner from "../Components/Banner";
 import BestSelling from "../Components/BestSelling";
 import Card from "../Components/Card";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import { useQuery } from "@tanstack/react-query";
+import Loading from "../Components/Loading";
+import OursChefs from "../Components/OursChefs";
+import Faq from "../Components/Faq";
 
 const Home = () => {
-  const [foods, setFoods] = useState([]);
 
-  useEffect(() => {
-    const AllFoods = async () => {
+  const {data: foods, isLoading } = useQuery({
+    queryKey:['best-selling'],
+    queryFn: async () => {
       const { data } = await axios.get(
         `${import.meta.env.VITE_API_URL}/best-selling`
       );
-      setFoods(data);
-    };
-    AllFoods();
-  }, []);
+      return data;
+    }
+  })
+
+  if (isLoading) return <Loading/>;
+  
+
+
+
 
 
   console.log(foods);
@@ -39,6 +47,14 @@ const Home = () => {
             </Link>
         </div>
       </div>
+          {/* our chefs */}
+          <div className="mx-auto max-w-[1280px] w-[95%] md:w-11/12 mb-20">
+            <OursChefs/>
+          </div>
+          <div className="">
+            <Faq/>
+          </div>
+
     </div>
   );
 };

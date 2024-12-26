@@ -1,12 +1,24 @@
 import { useContext } from "react";
 import { AuthContext } from "../AuthProvider/AuthProvider";
-import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
+import { QueryClient, useMutation } from "@tanstack/react-query";
+import useAxiosSecure from "../hook/useAxiosSecure";
 
 const AddFoods = () => {
   const { user } = useContext(AuthContext);
   const navigate = useNavigate()
+  const axiosSecure = useAxiosSecure();
+
+
+  const {isPending, mutateAsync} = useMutation({
+    mutationFn: async (foodData) => {
+      await axiosSecure.post(`${import.meta.env.VITE_API_URL}/add-food`, foodData);
+    },
+    onSuccess: () => {
+      QueryClient.invalidateQueries(['foods']);
+    }
+  })
 
 
   const handleAddFood = async(e) => {
@@ -47,10 +59,9 @@ const AddFoods = () => {
 
     };
 
-    console.table(formData);
     try{
-      const { data } = await axios.post(`${import.meta.env.VITE_API_URL}/add-food`, formData);
-      console.log('add food data----------------->',data)
+      // make post request using mutaion hook to add food
+      await mutateAsync(formData);
       toast.success("Food Added Successfully");
       form.reset();
       navigate('/all-foods')
@@ -204,7 +215,7 @@ const AddFoods = () => {
             {/* Submit  button*/}
           <div className="flex justify-end mt-6">
             <button className="disabled:cursor-not-allowed px-8 py-2.5 leading-5 text-white transition-colors duration-300 transhtmlForm bg-orange-500 rounded-md hover:bg-orange-600 focus:outline-none resize-none">
-              Add Item
+               {isPending ?  <span className="loading loading-spinner text-warning"></span> : "Add Item"}
             </button>
           </div>
         </form>

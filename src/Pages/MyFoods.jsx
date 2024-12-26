@@ -1,12 +1,13 @@
-import axios from "axios";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import MyFoodTableRow from "../Components/MyFoodTableRow";
 import toast from "react-hot-toast";
+import useAxiosSecure from "../hook/useAxiosSecure";
 
 const MyFoods = () => {
   const { user } = useContext(AuthContext);
   const [foods, setFoods] = useState([]);
+  const axiosSecure = useAxiosSecure();
 
   useEffect(() => {
     AllFoods();
@@ -14,8 +15,8 @@ const MyFoods = () => {
   }, [user]);
 
   const AllFoods = async () => {
-    const { data } = await axios.get(
-      `${import.meta.env.VITE_API_URL}/all-foods/${user?.email}`
+    const { data } = await axiosSecure.get(
+      `/all-foods/${user?.email}`, 
     );
     setFoods(data);
   };
@@ -23,12 +24,10 @@ const MyFoods = () => {
   // delete functionality for posted food
   const handleDelete = async (id) => {
     try {
-      const { data } = await axios.delete(`${import.meta.env.VITE_API_URL}/delete/${id}`);
-      console.log(data);
+      await axiosSecure.delete(`/delete/${id}`);
       toast.success("Data Deleted Successfully!!!");
       AllFoods();
     } catch (err) {
-      console.log(err);
       toast.error(err.message);
     }
   };
