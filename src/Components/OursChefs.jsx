@@ -27,10 +27,11 @@ const OursChefs = () => {
   ];
 
   return (
-    <section className="">
+    <section>
         <div className="mx-auto text-center mb-6">
-            <h2 className="text-center text-4xl font-bold text-gray-800 mb-2 dark:text-white font-Montserrat">Meet Our Chefs</h2>
-            <p className="font-Roboto text-black/60 dark:text-white/60 mx-auto md:w-[800px]">Our talented chefs are the heart of our kitchen. With passion, creativity, and years of expertise, they craft every dish to perfection. Get to know the culinary artists who bring flavor and magic to your table.</p>
+            <h3 className="text-xl md:text-2xl font-bold mb-2 md:mb-3 font-Montserrat dark:text-white">Meet Our Chefs</h3>
+            <p className=" text-sm md:text-base lg:w-[800px] mx-auto w-11/12 dark:text-white/60">Our talented chefs are the heart of our kitchen. With passion, creativity, and years of expertise, they craft every dish to perfection. Get to know the culinary artists who bring flavor and magic to your table.</p>
+
         </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 p-4">
         {chefs.map((chef) => (

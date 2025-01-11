@@ -1,6 +1,6 @@
 const Footer = () => {
   return (
-    <div className="bg-base-200 dark:bg-white/20">
+    <div className="bg-base-200 dark:bg-neutral-800">
       <div className="mx-auto w-11/12 max-w-[1280px] pt-20">
         <h3
           className="text-3xl text-black dark:text-white dark:text-dTextSecondary  font-semibold mb-8 font-Montserrat"

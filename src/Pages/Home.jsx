@@ -35,7 +35,7 @@ const Home = () => {
           </div>
           <div className="flex items-center justify-center mt-6">
             <Link to={`/all-foods`}>
-              <button className="mt-6  px-6 py-2 transition-all duration-300 text-white bg-orange-500 font-medium hover:bg-orange-600 rounded-md">
+              <button className="md:mt-6 mt-4  px-3 py-1  md:px-6 md:py-2 transition-all duration-300 text-white bg-orange-500 font-medium hover:bg-orange-600 rounded-md text-sm md:text-lg">
                 View All Foods
               </button>
             </Link>

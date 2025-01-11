@@ -47,22 +47,22 @@ const Login = () => {
 
     return (
         <div className="flex justify-center items-center mx-auto max-w-[1280px] min-h-[calc(100vh-338px)] w-11/12 my-12" >
-            <div className="flex items-center justify-center lg:flex-row flex-col gap-6  w-full max-w-sm  overflow-hidden bg-white rounded-lg shadow-lg  lg:max-w-4xl p-8">
+            <div className="flex items-center justify-center lg:flex-row flex-col gap-6  w-full max-w-sm  overflow-hidden bg-white rounded-lg shadow-lg  lg:max-w-4xl p-4 md:p-8 dark:bg-neutral-800">
             <div className="w-full lg:w-1/2">
             <Lottie animationData={animationData} ></Lottie>
             </div>
             <div className="w-full lg:w-1/2">
-            <h2 className="mb-6 text-2xl font-semibold text-center text-gray-700">
+            <h2 className=" mb-3 text-lg md:mb-6  md:text-xl font-semibold text-center text-gray-700 dark:text-base-200">
           SignIn
         </h2>
 
-        <form onSubmit={handleSignIn} className="space-y-6">
+        <form onSubmit={handleSignIn} className="space-y-3 md:space-y-6">
 
           {/* Email */}
           <div>
             <label
               htmlFor="email"
-              className="block mb-2 text-sm font-medium text-gray-600"
+              className="block mb-1 md:mb-2 text-xs md:text-sm font-medium text-gray-600 dark:text-base-200"
             >
               Email
             </label>
@@ -71,7 +71,7 @@ const Login = () => {
               id="email"
             //   value={email}
 
-              className="w-full px-4 py-2 text-sm text-gray-700 bg-gray-100 border rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500"
+              className="w-full px-2 md:px-4 py-2 text-xs md:text-sm text-gray-700 bg-gray-100 border rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500"
               placeholder="Enter your email"
               required
             />
@@ -80,7 +80,7 @@ const Login = () => {
           <div>
             <label
               htmlFor="password"
-              className="block mb-2 text-sm font-medium text-gray-600"
+              className="block mb-1 md:mb-2 text-xs md:text-sm font-medium text-gray-600 dark:text-base-200"
             >
               Password
             </label>
@@ -88,7 +88,7 @@ const Login = () => {
               type="password"
               id="password"
             //   value={password}              
-              className="w-full px-4 py-2 text-sm text-gray-700 bg-gray-100 border rounded-md focus:outline-none focus:ring-2  focus:ring-orange-500"
+              className="w-full px-2 md:px-4 py-2 text-xs md:text-sm text-gray-700 bg-gray-100 border rounded-md focus:outline-none focus:ring-2  focus:ring-orange-500"
               placeholder="Enter your password"
               required
             />
@@ -96,13 +96,13 @@ const Login = () => {
           {/* Submit */}
           <button
             type="submit"
-            className="w-full px-4 py-2 text-white bg-orange-500 rounded-md hover:bg-orange-600 focus:outline-none focus:ring-2 focus:ring-orange-500"
+            className="w-full py-2 text-xs md:text-sm lg:text-base text-white bg-orange-500 rounded-md hover:bg-orange-600 focus:outline-none focus:ring-2 focus:ring-orange-500"
           >
             SignIn
           </button>
         </form>
         {/* Footer */}
-        <p className="mt-4 text-xs text-center text-gray-600">
+        <p className="mt-4  text-[10px] md:text-xs text-center text-gray-600 dark:text-base-200">
         <span>Don&apos;t have an account? </span>
           <Link
             to="/register"
@@ -113,12 +113,12 @@ const Login = () => {
         </p>
 
 
-        <div className="text-center mt-6 w-full">
+        <div className="text-center mt-4 md:mt-6 w-full">
             <button
             onClick={handleGoogle}
 
-            className="py-2 px-8 bg-orange-500 rounded-full text-white f hover:bg-orange-600 transition-all duration-300">
-             <span  className="flex items-center justify-center gap-2 mx-auto">  
+            className="md:py-2 md:px-8 py-1 px-3 bg-orange-500 rounded-full text-white f hover:bg-orange-600 transition-all duration-300 text-xs md:text-base lg:text-lg">
+             <span  className="flex items-center justify-center gap-1 md:gap-2 mx-auto">  
               <FaGoogle />
              SignIn with Google 
              </span>

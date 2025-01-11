@@ -11,6 +11,7 @@ import image9 from "../assets/gallery/9.jpg";
 import image10 from "../assets/gallery/10.jpg";
 import image11 from "../assets/gallery/11.jpg";
 import image12 from "../assets/gallery/12.jpg";
+import galleryBg from "../assets/TitleBg/galleryBg.jpg"
 
 
 
@@ -79,17 +80,19 @@ const Gallery = () => {
   ];
 
   return (
-    <section className="container px-6 py-10 mx-auto min-h-[calc(100vh-338px)] flex flex-col justify-between">
+    <section className="container px-6 py-10 mx-auto min-h-[calc(100vh-338px)] flex flex-col justify-between z-0">
       {/* heading banner */}
-      <div className="h-[100px] md:h-[250px] bg-gallery-banner w-full bg-cover bg-center bg-no-repeat flex items-center justify-center relative mb-10">
+      <div 
+      style={{backgroundImage: `url(${galleryBg})`}}
+      className="h-[100px] md:h-[250px]  w-full bg-cover bg-center bg-no-repeat flex items-center justify-center relative mb-10 py-3">
         {/* overlay  */}
         <div className="absolute inset-0 bg-black opacity-50"></div>
         {/* descriptions  */}
         <div className="text-center z-10">
-          <h1 className="text-xl md:text-4xl font-semibold text-white">
+          <h1 className="text-lg md:text-2xl lg:text-4xl font-semibold text-white">
             Gallery | Taste Odyssey
           </h1>
-          <p className="px-[10%] text-sm md:text-lg text-white/60 mt-1">
+          <p className=" px-[9%] md:px-[10%] lg:px-[15%] text-xs md:text-base lg:text-lg text-white/60 mt-1">
             Welcome to the Taste Odyssey Gallery! Here you can view images of
             our delicious food.
           </p>
@@ -97,7 +100,6 @@ const Gallery = () => {
       </div>
 
       {/* gallery sections */}
-
         <ImageGallery
           imagesInfoArray={imagesArray}
           columnCount={"auto"}

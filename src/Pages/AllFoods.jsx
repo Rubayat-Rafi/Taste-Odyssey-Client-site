@@ -4,6 +4,7 @@ import { IoSearch } from "react-icons/io5";
 import Card from "../Components/Card";
 import { FaArrowRight } from "react-icons/fa";
 import { FaArrowLeft } from "react-icons/fa";
+import allFoodBg from  "../assets/TitleBg/allFoods.jpg"
 
 const AllFoods = () => {
   const [itemPerPage, setItemPerPage] = useState(9);
@@ -73,17 +74,17 @@ const AllFoods = () => {
   return (
     <div className="container px-6 py-10 mx-auto min-h-[calc(100vh-338px)] flex flex-col justify-between">
       {/* heading banner */}
-      <div
-      // style={{ backgroundImage: 'url()' }}
-      className="h-[100px] md:h-[250px] bg-all-food-banner w-full bg-cover bg-center bg-no-repeat flex items-center justify-center relative">
+      <div 
+      style={{backgroundImage: `url(${allFoodBg})`}}
+      className="h-[100px] md:h-[250px] w-full bg-cover bg-center bg-no-repeat flex items-center justify-center relative">
         {/* overlay  */}
         <div className="absolute inset-0 bg-black opacity-50"></div>
         {/* descriptions  */}
         <div className="text-center z-10">
-          <h1 className="text-xl md:text-4xl font-semibold text-white">
+          <h1 className="text-lg md:text-2xl lg:text-4xl font-semibold text-white">
             All Foods | Taste Odyssey
           </h1>
-          <p className=" text-sm md:text-lg text-white/60">
+          <p className="text-xs md:text-base lg:text-lg text-white/60 mt-1">
             Choose your favorite food
           </p>
         </div>

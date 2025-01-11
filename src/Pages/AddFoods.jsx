@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 import { QueryClient, useMutation } from "@tanstack/react-query";
 import useAxiosSecure from "../hook/useAxiosSecure";
+import addFoodBg from "../assets/BackgroundBanner/AddFoodBG.jpg"
 
 const AddFoods = () => {
   const { user } = useContext(AuthContext);
@@ -73,9 +74,11 @@ const AddFoods = () => {
   };
 
   return (
-    <div className="bg-add-food-bg bg-cover bg-center ">
+    <div
+    style={{backgroundImage: `url(${addFoodBg})`}}
+    className=" bg-cover bg-center">
     <div className="flex justify-center items-center min-h-[calc(100vh-338px)] py-12">
-      <section className=" p-2 md:p-6 mx-auto bg-white dark:bg-white/20 rounded-md shadow-md ">
+      <section className=" p-2 md:p-6 mx-auto bg-white dark:bg-black rounded-md shadow-md  z-10">
         <h2 className="text-lg font-semibold text-gray-700 capitalize dark:text-white">
           Add Food
         </h2>

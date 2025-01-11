@@ -5,9 +5,9 @@ import Navbar from '../Components/Navbar';
 
 const Main = () => {
     return (
-        <div className='dark:bg-black'>
+        <div className='dark:bg-neutral-900'>
             {/* navbar */}
-            <div className="sticky top-0 z-50 w-full bg-base-100 dark:bg-black">
+            <div className="sticky top-0 z-50 w-full bg-base-100 dark:bg-neutral-800">
             <Navbar/>
             </div>
 
