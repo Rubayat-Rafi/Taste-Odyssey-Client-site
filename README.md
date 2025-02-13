@@ -55,7 +55,7 @@ This project is a feature-rich web application built using modern web developmen
 
 Live Site Link : https://taste-odyssey.web.app
 
-GitHub Repository ( server ) : https://github.com/programming-hero-web-course2/b10a11-client-side-Rubayat-Rafi
+GitHub Repository ( server ) : https://github.com/Rubayat-Rafi/Taste-Odyssey-Client-site
 
-GitHub Repository ( client  ) : https://github.com/programming-hero-web-course2/b10a11-server-side-Rubayat-Rafi
+GitHub Repository ( client  ) : https://github.com/Rubayat-Rafi/Taste-Odyssey-Server-Site
 
